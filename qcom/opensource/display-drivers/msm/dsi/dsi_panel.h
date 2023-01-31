@@ -477,6 +477,7 @@ struct dsi_panel {
 
 	/* dsi cmd set delay when sleep in */
 	u32 dsi_cmd_set_off_delay;
+	bool hbm_enabled;
 	bool fod_hbm_enabled;
 };
 
