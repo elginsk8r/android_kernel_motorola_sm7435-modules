@@ -5186,7 +5186,6 @@ static ssize_t sysfs_hbm_write(struct device *dev,
 	if (rc)
 		return rc;
 
-	mutex_lock(&panel->panel_lock);
 	if (panel->hbm_enabled == status)
 		goto exit;
 
@@ -5200,8 +5199,6 @@ static ssize_t sysfs_hbm_write(struct device *dev,
 	panel->hbm_enabled = status;
 
 exit:
-	mutex_unlock(&panel->panel_lock);
-
 	return rc ?: count;
 }
 
@@ -5236,7 +5233,6 @@ static ssize_t sysfs_fod_hbm_write(struct device *dev,
 	if (rc)
 		return rc;
 
-	mutex_lock(&panel->panel_lock);
 	if (panel->fod_hbm_enabled == status)
 		goto exit;
 
@@ -5250,8 +5246,6 @@ static ssize_t sysfs_fod_hbm_write(struct device *dev,
 	panel->fod_hbm_enabled = status;
 
 exit:
-	mutex_unlock(&panel->panel_lock);
-
 	return rc ?: count;
 }
 
@@ -5286,7 +5280,6 @@ static ssize_t sysfs_dc_dimming_write(struct device *dev,
 	if (rc)
 		return rc;
 
-	mutex_lock(&panel->panel_lock);
 	if (panel->dc_state == status)
 		goto exit;
 
@@ -5298,8 +5291,6 @@ static ssize_t sysfs_dc_dimming_write(struct device *dev,
 		goto exit;
 
 exit:
-	mutex_unlock(&panel->panel_lock);
-
 	return rc ?: count;
 }
 
