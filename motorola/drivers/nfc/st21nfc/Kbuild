@@ -2,7 +2,7 @@
 EXTRA_CFLAGS += -Wall
 EXTRA_CFLAGS += -I$(KERNEL_SRC)/../sm6475-modules/motorola/include
 
-ifneq ($(filter ctwo% arcfox% eiger%, $(TARGET_PRODUCT)),)
+ifneq (,$(or $(findstring ctwo,$(TARGET_PRODUCT)),$(findstring arcfox,$(TARGET_PRODUCT)),$(findstring eiger,$(TARGET_PRODUCT))))
         EXTRA_CFLAGS += -DQCOM_NFC_CLK_REQ_WAKE_SET
 endif
 
