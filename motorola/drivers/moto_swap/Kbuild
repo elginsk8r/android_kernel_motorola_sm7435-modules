@@ -1,4 +1,4 @@
-ZRAM_SRC = zram-$(VERSION).$(PATCHLEVEL)
+ZRAM_SRC = zram-5.10
 
 $(warning moto_swap - zram src folder = $(ZRAM_SRC))
 
