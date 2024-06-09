@@ -5,7 +5,7 @@ endif
 # add -Wall to try to catch everything we can.
 EXTRA_CFLAGS += -Wall
 EXTRA_CFLAGS += -I$(ANDROID_BUILD_TOP)/kernel-5.10/include
-EXTRA_CFLAGS += -I$(ANDROID_BUILD_TOP)/motorola/kernel/modules/include \
+EXTRA_CFLAGS += -I$(KERNEL_SRC)/../sm6475-modules/motorola/include \
 		-I$(ANDROID_BUILD_TOP)/kernel_device_modules-6.1/include \
 
 # KBUILD_EXTRA_SYMBOLS += $(CURDIR)/../../kernel/msm-$(MODULE_KERNEL_VERSION)/Module.symvers
