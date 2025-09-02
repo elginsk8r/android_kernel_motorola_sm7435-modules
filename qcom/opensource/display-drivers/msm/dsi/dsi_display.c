@@ -9762,7 +9762,6 @@ int dsi_display_enable(struct dsi_display *display)
 			goto error;
 		}
 
-
 		if (display->panel->dfps_caps.dfps_send_cmd_support) {
 			display->panel->dfps_caps.current_fps = display->panel->dfps_caps.panel_on_fps;
 			if (mode->timing.refresh_rate != display->panel->dfps_caps.panel_on_fps) {
