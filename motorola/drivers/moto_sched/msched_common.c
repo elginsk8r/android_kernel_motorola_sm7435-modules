@@ -25,7 +25,7 @@
 #endif
 #include <trace/hooks/sched.h>
 #include <trace/hooks/signal.h>
-#include <kernel/sched/sched.h>
+#include <sched.h>
 
 #include "msched_common.h"
 #include "locking/locking_main.h"

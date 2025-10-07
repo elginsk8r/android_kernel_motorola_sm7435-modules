@@ -4,7 +4,7 @@
  */
 
 #include <include/linux/sched.h>
-#include <kernel/sched/sched.h>
+#include <sched.h>
 #include <include/linux/hrtimer.h>
 #include <include/linux/futex.h>
 #include <include/linux/sched/task.h>

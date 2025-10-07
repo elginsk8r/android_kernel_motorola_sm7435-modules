@@ -26,10 +26,10 @@
 #if IS_ENABLED(CONFIG_MTK_SCHED_VIP_TASK)
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 1, 0)
 #include <linux/sched/cputime.h>
-#include <kernel/sched/sched.h>
-#include <drivers/misc/mediatek/sched/common.h>
+#include <sched.h>
+#include <common.h>
 #else
-#include <drivers/misc/mediatek/sched/sched_mtk.h>
+#include <sched_mtk.h>
 #endif
 #endif
 
