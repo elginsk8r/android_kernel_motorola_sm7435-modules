@@ -5,12 +5,11 @@ endif
 # add -Wall to try to catch everything we can.
 EXTRA_CFLAGS += -Wall
 EXTRA_CFLAGS += -I$(KERNEL_SRC)/../sm7435-modules/motorola/include
-EXTRA_CFLAGS += -I$(ANDROID_BUILD_TOP)/kernel_platform/common
+EXTRA_CFLAGS += -I$(KERNEL_SRC)/kernel/sched
 EXTRA_CFLAGS += -I$(KERNEL_SRC)/../sm7435-modules/motorola/drivers/moto_sched
 
 ifneq ($(filter m y,$(CONFIG_MTK_SCHED_VIP_TASK)),)
-EXTRA_CFLAGS += -I$(ANDROID_BUILD_TOP)/kernel-6.1
-EXTRA_CFLAGS += -I$(ANDROID_BUILD_TOP)/kernel_device_modules-6.1
+EXTRA_CFLAGS += -I$(KERNEL_SRC)/drivers/misc/mediatek/sched
 CONFIG_MOTO_MUTEX_INHERIT := y
 CONFIG_MOTO_RWSEM_INHERIT := y
 endif

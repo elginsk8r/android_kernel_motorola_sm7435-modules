@@ -20,8 +20,8 @@
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 1, 0)
 #include <linux/sched/cputime.h>
 #endif
-#include <kernel/sched/sched.h>
 
+#include "sched.h"
 #include "msched_sysfs.h"
 #include "msched_common.h"
 

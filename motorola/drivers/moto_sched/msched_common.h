@@ -27,8 +27,8 @@
 
 #if IS_ENABLED(CONFIG_MTK_SCHED_VIP_TASK)
 #include <linux/sched/cputime.h>
-#include <kernel/sched/sched.h>
-#include <drivers/misc/mediatek/sched/common.h>
+#include "sched.h"
+#include "common.h"
 #endif
 
 #define VERION 1009
