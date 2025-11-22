@@ -166,24 +166,18 @@ endif
 
 # for WAIPIO sound card driver
 ifdef CONFIG_SND_SOC_WAIPIO
-ifneq (,$(filter ironmn%, $(TARGET_PRODUCT)))
+ifneq (,$(findstring ironmn,$(TARGET_PRODUCT)))
 	MACHINE_OBJS += waipio-ironmn.o
-else ifneq (,$(filter genev% bosto% avatr%, $(TARGET_PRODUCT)))
+else ifneq (,$(findstring felix,$(TARGET_PRODUCT)))
+	MACHINE_OBJS += waipio-felix.o
+else ifneq (,$(findstring cusco,$(TARGET_PRODUCT)))
+	MACHINE_OBJS += waipio-cusco-parrot.o
+else ifneq (,$(findstring tank,$(TARGET_PRODUCT)))
+	MACHINE_OBJS += waipio-diwali-tank.o
+else ifneq (,$(or $(findstring geneva,$(TARGET_PRODUCT)),$(findstring genevn,$(TARGET_PRODUCT)),$(findstring boston,$(TARGET_PRODUCT)),$(findstring avatrn,$(TARGET_PRODUCT))))
 	MACHINE_OBJS += waipio-parrot.o
 else
-ifneq (,$(filter felix%, $(TARGET_PRODUCT)))
-	MACHINE_OBJS += waipio-felix.o
-else
-ifneq (,$(filter cusco%, $(TARGET_PRODUCT)))
-	MACHINE_OBJS += waipio-cusco-parrot.o
-else
-ifneq (,$(filter tank%, $(TARGET_PRODUCT)))
-	MACHINE_OBJS += waipio-diwali-tank.o
-else
 	MACHINE_OBJS += waipio.o
-endif
-endif
-endif
 endif
 endif
 
