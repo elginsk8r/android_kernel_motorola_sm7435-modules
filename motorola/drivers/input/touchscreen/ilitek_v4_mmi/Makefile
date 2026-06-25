@@ -1,4 +1,4 @@
-ifeq ($(strip $(MODULE_KERNEL_VERSION)), 5.15)
+ifneq ($(filter 5.15% 6.1% 6.6%,$(strip $(MODULE_KERNEL_VERSION))),)
 all: modules
 
 modules:
@@ -22,13 +22,13 @@ else
 KERNEL_SRC ?= /lib/modules/$(shell uname -r)/build
 
 all:
-	$(MAKE) -C $(KERNEL_SRC) M=$(shell pwd) modules $(KBUILD_OPTIONS)
+	$(MAKE) -C $(KERNEL_SRC) M=$(M) modules $(KBUILD_OPTIONS)
 
 modules_install:
-	$(MAKE) INSTALL_MOD_STRIP=1 -C $(KERNEL_SRC) M=$(shell pwd) modules_install
+	$(MAKE) INSTALL_MOD_STRIP=1 -C $(KERNEL_SRC) M=$(M) modules_install
 
 clean:
-	$(MAKE) -C $(KERNEL_SRC) M=$(PWD) clean
+	$(MAKE) -C $(KERNEL_SRC) M=$(M) clean
 
 KBUILD_EXTRA_SYMBOLS += $(M)/../../../mmi_info/$(GKI_OBJ_MODULE_DIR)/Module.symvers
 KBUILD_EXTRA_SYMBOLS += $(M)/../touchscreen_mmi/$(GKI_OBJ_MODULE_DIR)/Module.symvers
