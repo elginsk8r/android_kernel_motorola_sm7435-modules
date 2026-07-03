@@ -19,7 +19,7 @@ KBUILD_OPTIONS := VIDEO_ROOT=$(VIDEO_BLD_DIR)
 
 KBUILD_OPTIONS += $(VIDEO_SELECT)
 
-ifneq ($(filter $(TARGET_BOARD_PLATFORM), monaco vienna),$(TARGET_BOARD_PLATFORM))
+ifneq ($(TARGET_BOARD_PLATFORM), monaco)
 KBUILD_OPTIONS += KBUILD_EXTRA_SYMBOLS=$(shell pwd)/$(call intermediates-dir-for,DLKM,mmrm-module-symvers)/Module.symvers
 endif
 ###########################################################
@@ -33,13 +33,14 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES           := $(wildcard $(LOCAL_PATH)/**/*) $(wildcard $(LOCAL_PATH)/*)
 LOCAL_MODULE              := msm_video.ko
 LOCAL_MODULE_KBUILD_NAME  := msm_video.ko
+LOCAL_MULTILIB := first
 LOCAL_MODULE_TAGS         := optional
 LOCAL_MODULE_DEBUG_ENABLE := true
 LOCAL_MODULE_PATH         := $(KERNEL_MODULES_OUT)
 LOCAL_MODULE_DDK_BUILD    := true
 LOCAL_MODULE_KO_DIRS      := msm_video.ko
 
-ifneq ($(filter $(TARGET_BOARD_PLATFORM), monaco vienna),$(TARGET_BOARD_PLATFORM))
+ifneq ($(TARGET_BOARD_PLATFORM), monaco)
 LOCAL_REQUIRED_MODULES    := mmrm-module-symvers
 LOCAL_ADDITIONAL_DEPENDENCIES := $(call intermediates-dir-for,DLKM,mmrm-module-symvers)/Module.symvers
 endif
